@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import StatusList from './Components/StatusList'
+import StatusAll from './Components/StatusAll'
 
 
 
@@ -9,7 +9,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-            <StatusList />
+            <StatusAll />
         </header>
       </div>
     );
