@@ -1,4 +1,4 @@
-## redux Labs
+###redux Labs
 
-#run-through of some simple redux apps
+##run-through of some simple redux apps
 
