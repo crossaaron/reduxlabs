@@ -6,7 +6,7 @@ class Status extends Component {
   render() {
     return (
         <div className='status'>
-            <p>Component Refresher</p>
+            <p>{this.props.mytext}</p>
             <p><button>Like</button></p>
         </div>
     )
@@ -18,10 +18,10 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-            <Status />
-            <Status />
-            <Status />
-            <Status />
+            <Status mytext="first line of text"/>
+            <Status mytext="second line of text"/>
+            <Status mytext="third line of text"/>
+            <Status mytext="fourth line of text"/>
         </header>
       </div>
     );
