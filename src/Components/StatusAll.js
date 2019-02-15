@@ -5,7 +5,7 @@ export default class StatusAll extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            newStatusText: 'new text',
+            newStatusText: '',
             statuses: [
                 "first line of text",
                 "second line of text",
@@ -14,9 +14,19 @@ export default class StatusAll extends Component {
             ]
         }
         this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
     handleChange(event) {
         this.setState({newStatusText: event.target.value});
+    }
+    handleSubmit(event) {
+        //stop auto refresh on page
+        event.preventDefault();
+        let newStatuses = [this.state.newStatusText, ...this.state.statuses]
+        this.setState({
+            newStatusText: 'new text',
+            statuses: newStatuses
+        })
     }
 
     render() {
@@ -24,7 +34,7 @@ export default class StatusAll extends Component {
             <div>
                 <div className="status">
                     <h1>Enter New Status </h1>
-                    <form>
+                    <form onSubmit={this.handleSubmit}>
                         <input type='text' value={this.state.newStatusText}
                                onChange={this.handleChange}placeholder='text here'/>
                         <button type='submit'>Add Status</button>

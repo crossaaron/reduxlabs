@@ -6,7 +6,7 @@ export default class Status extends Component {
         super();
         this.state = {
             likes: 0
-        }
+        };
         this.like = this.like.bind(this);
     }
 
