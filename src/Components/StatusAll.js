@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import StatusList from './StatusList';
+import './Status.css';
 
 export default class StatusAll extends Component {
     constructor(props) {
@@ -15,6 +16,14 @@ export default class StatusAll extends Component {
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.delete = this.delete.bind(this);
+    }
+
+    delete(index) {
+         let copy = [...this.state.statuses];
+        copy.splice(index, 1);
+        this.setState({statuses: copy});
+
     }
     handleChange(event) {
         this.setState({newStatusText: event.target.value});
@@ -24,7 +33,7 @@ export default class StatusAll extends Component {
         event.preventDefault();
         let newStatuses = [this.state.newStatusText, ...this.state.statuses]
         this.setState({
-            newStatusText: 'new text',
+            newStatusText: '',
             statuses: newStatuses
         })
     }
@@ -42,7 +51,8 @@ export default class StatusAll extends Component {
                 </div>
                 <div className='status'>
                     <h1>All Statuses </h1>
-                    <StatusList statuses={this.state.statuses}/>
+                    <StatusList statuses={this.state.statuses}
+                                delete={this.delete} />
                 </div>
             </div>
         )

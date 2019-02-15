@@ -8,6 +8,7 @@ export default class Status extends Component {
             likes: 0
         };
         this.like = this.like.bind(this);
+        this.delete = this.delete.bind(this);
     }
 
     like() {
@@ -16,10 +17,15 @@ export default class Status extends Component {
         });
     }
 
+    delete() {
+        this.props.delete(this.props.index);
+    }
+
 
     render() {
         return (
             <div className='status'>
+                <div className='close' onClick={this.delete}>X</div>
                 <p>{this.props.mytext}</p>
                 <p>
                     <button onClick={this.like}>
